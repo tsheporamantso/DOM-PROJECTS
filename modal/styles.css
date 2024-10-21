@@ -216,6 +216,7 @@ Modal
   display: grid;
   place-items: center;
   transition: var(--transition);
+  font-family: var(--ff-primary);
   visibility: hidden;
   z-index: -10;
 }
