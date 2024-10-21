@@ -21,5 +21,3 @@ document.body.addEventListener('keydown', (e) => {
 });
 
 modalParagraph.style.fontSize = '20px';
-modalParagraph.style.padding = '0px';
-modalParagraph.style.marginTop = '0px';
