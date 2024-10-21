@@ -13,5 +13,5 @@ navToggle.addEventListener('click', () => {
   } else {
     addLinks();
   }
-  // linkValues.toggle('show-links');
+  // linkValues.toggle('show-links'); // Alternative.
 });
