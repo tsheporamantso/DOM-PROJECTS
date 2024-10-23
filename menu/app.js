@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const menu = [
   {
     id: 1,
@@ -71,12 +72,26 @@ const menu = [
     img: './images/item-9.jpeg',
     desc: 'skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.',
   },
-  {
-    id: 10,
-    title: 'bison steak',
-    category: 'dinner',
-    price: 22.99,
-    img: './images/item-10.jpeg',
-    desc: 'skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.',
-  },
 ];
+
+const sectionCenter = document.querySelector('.section-center');
+
+window.addEventListener('DOMContentLoaded', () => {
+  const displayMenu = menu
+    .map(
+      (item) => `
+     <article class="menu-item">
+          <img src=${item.img} alt=${item.title} class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class="price">$${item.price}</h4>
+            </header>
+            <p class="item-text">${item.desc}</p>
+          </div>
+        </article>
+    `
+    )
+    .join('');
+  sectionCenter.innerHTML = displayMenu;
+});
