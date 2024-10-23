@@ -72,26 +72,52 @@ const menu = [
     img: './images/item-9.jpeg',
     desc: 'skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.',
   },
+  {
+    id: 10,
+    title: 'stake dinner',
+    category: 'dinner',
+    price: 32.99,
+    img: './images/item-10.jpeg',
+    desc: 'skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.',
+  },
 ];
 
 const sectionCenter = document.querySelector('.section-center');
+const btnContainer = document.querySelectorAll('.btn-container');
 
-window.addEventListener('DOMContentLoaded', () => {
-  const displayMenu = menu
+const displayMenuItems = (menuItem) => {
+  const displayMenu = menuItem
     .map(
       (item) => `
-     <article class="menu-item">
-          <img src=${item.img} alt=${item.title} class="photo" />
-          <div class="item-info">
-            <header>
-              <h4>${item.title}</h4>
-              <h4 class="price">$${item.price}</h4>
-            </header>
-            <p class="item-text">${item.desc}</p>
-          </div>
-        </article>
-    `
+   <article class="menu-item">
+        <img src=${item.img} alt=${item.title} class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>${item.title}</h4>
+            <h4 class="price">$${item.price}</h4>
+          </header>
+          <p class="item-text">${item.desc}</p>
+        </div>
+      </article>
+  `
     )
     .join('');
   sectionCenter.innerHTML = displayMenu;
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  displayMenuItems(menu);
+});
+
+btnContainer.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const categories = e.target.dataset.id;
+    const categoryBtns = menu.filter((item) => item.category === categories);
+
+    if (categories === 'all') {
+      displayMenuItems(menu);
+    } else {
+      displayMenuItems(categoryBtns);
+    }
+  });
 });
