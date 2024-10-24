@@ -84,6 +84,7 @@ const menu = [
 
 const sectionCenter = document.querySelector('.section-center');
 const btnContainer = document.querySelector('.btn-container');
+const preloader = document.querySelector('.preloader');
 
 const displayMenuItems = (menuItem) => {
   const displayMenu = menuItem
@@ -143,4 +144,8 @@ const displayCategoryBts = () => {
 window.addEventListener('DOMContentLoaded', () => {
   displayMenuItems(menu);
   displayCategoryBts();
+});
+
+window.addEventListener('load', () => {
+  preloader.classList.add('hide-preloader');
 });
