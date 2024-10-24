@@ -1,16 +1,17 @@
 // selecting elements
-const videoContainer = document.querySelector('.video-container');
+const video = document.querySelector('.video-container');
 const btn = document.querySelector('.switch-btn');
 const preloader = document.querySelector('.preloader');
 
 // toggle video button
 btn.addEventListener('click', (e) => {
-  if (e.currentTarget.classList.contains('slide')) {
-    e.currentTarget.classList.remove('slide');
-    videoContainer.play();
+  const currentTarget = e.currentTarget.classList;
+  if (!currentTarget.contains('slide')) {
+    currentTarget.add('slide');
+    video.pause();
   } else {
-    e.currentTarget.classList.add('slide');
-    videoContainer.pause();
+    currentTarget.remove('slide');
+    video.play();
   }
 });
 
