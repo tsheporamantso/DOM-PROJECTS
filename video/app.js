@@ -1,7 +1,9 @@
+// selecting elements
 const videoContainer = document.querySelector('.video-container');
 const btn = document.querySelector('.switch-btn');
 const preloader = document.querySelector('.preloader');
 
+// toggle video button
 btn.addEventListener('click', (e) => {
   if (e.currentTarget.classList.contains('slide')) {
     e.currentTarget.classList.remove('slide');
@@ -12,6 +14,7 @@ btn.addEventListener('click', (e) => {
   }
 });
 
+// preloader
 window.addEventListener('load', () => {
   preloader.classList.add('hide-preloader');
 });
