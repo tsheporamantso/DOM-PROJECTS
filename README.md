@@ -24,7 +24,7 @@
 
 # 📖 DOM Projects <a name="about-project"></a>
 
-_This is DOM practice projects _
+This is a series of Document Object Model practice projects, showcasing a variety of methods such as Event listeners, classList, event object parameter, adding HTML elements and innerText dynamically.
 
 ## 🛠 Built With<a name="built-with"></a>
 
