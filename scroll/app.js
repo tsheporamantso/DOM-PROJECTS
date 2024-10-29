@@ -53,3 +53,30 @@ window.addEventListener('scroll', () => {
     topLink.classList.remove('show-link');
   }
 });
+
+// ********** smooth scroll ************
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
+scrollLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    const element = document.getElementById(id);
+    // calculate height
+    const navbarHeight = navbar.getBoundingClientRect().height;
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+    const fixedNav = navbar.classList.contains('fixed-nav');
+    let position = element.offsetTop - navbarHeight;
+    if (!fixedNav) {
+      position -= navbarHeight;
+    }
+    if (navbarHeight > 82) {
+      position += containerHeight;
+    }
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+    linksContainer.style.height = 0;
+  });
+});
