@@ -27,7 +27,14 @@ const giveaway = document.querySelector('.giveaway');
 const deadline = document.querySelector('.deadline');
 const items = document.querySelectorAll('.deadline-format h4');
 
-const futureDate = new Date(2024, 9, 31, 11, 30, 0);
+const tempDate = new Date();
+const tempYear = tempDate.getFullYear();
+const tempMonth = tempDate.getMonth();
+const tempDay = tempDate.getDate();
+
+// const futureDate = new Date(2024, 9, 30, 16, 50, 0);
+
+const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30, 0);
 
 const year = futureDate.getFullYear();
 const month = months[futureDate.getMonth()];
@@ -36,7 +43,7 @@ const date = futureDate.getDate();
 const hour = futureDate.getHours();
 const minutes = futureDate.getMinutes();
 
-giveaway.textContent = `giveaway ends on  ${weekday} ${date} ${month} ${year}, at ${hour}:${minutes}am`;
+giveaway.textContent = `giveaway ends on  ${weekday} ${date} ${month} ${year}, ${hour}:${minutes}am`;
 
 // future time in ms
 const futureTime = futureDate.getTime();
@@ -76,7 +83,7 @@ const getRemainingTime = () => {
   if (t < 0) {
     clearInterval(countdown);
     deadline.innerHTML = `
-    <h4 class="expired">sorry the time has expired</h4>
+    <h4 class="expired">sorry this giveaway has expired!</h4>
     `;
   }
 };
